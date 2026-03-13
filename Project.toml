@@ -4,7 +4,7 @@ authors = ["Ryan Norris"]
 version = "1.0.0"
 
 [deps]
-OITOOLS = "a6b2dd57-3984-45ae-8046-40b1a3f25f5b"
+OITOOLS = "3fc04337-ac9e-422b-9e4b-9feddb92e93f"
 PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
 PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
