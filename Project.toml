@@ -1,5 +1,15 @@
+name = "OITOOLSWorkshop"
+uuid = "00000000-0000-0000-0000-000000000001"
+authors = ["Ryan Norris"]
+version = "1.0.0"
+
 [deps]
-IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
-OITOOLS = "..." # (Generated automatically when you run Pkg.add locally)
+OITOOLS = "a6b2dd57-3984-45ae-8046-40b1a3f25f5b"
 PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
 PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+
+# Downloads is a Julia stdlib — always available, no need to declare it here.
+# Use it in the notebook with: import Downloads: download
+
+[compat]
+julia = "1.9"
