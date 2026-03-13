@@ -2,7 +2,7 @@
 
 julia_version = "1.12.1"
 manifest_format = "2.0"
-project_hash = "b339d122d3bb0668c2b1e3ea01c4ca82e0ea14f0"
+project_hash = "eee58fbec1fcf1a81a984a1a14abe99a063a34a0"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "f7304359109c768cf32dc5fa2d371565bb63b68a"
@@ -926,16 +926,9 @@ version = "1.0.0"
 [[deps.OITOOLS]]
 deps = ["ArrayTools", "AstroTime", "CFITSIO", "Conda", "Crayons", "Dates", "DelimitedFiles", "Documenter", "DocumenterTools", "FFTW", "FITSIO", "Glob", "LaTeXStrings", "LazyAlgebra", "LinearAlgebra", "LsqFit", "Match", "NFFT", "NLopt", "NearestNeighbors", "OIFITS", "OptimPackNextGen", "Parameters", "Pkg", "Printf", "ProgressMeter", "PyCall", "PyPlot", "Random", "SparseArrays", "SpecialFunctions", "Statistics", "UltraNest"]
 git-tree-sha1 = "dfb882cee37a506de321ff5c021011114aaf859f"
-repo-rev = "main"
 repo-url = "https://github.com/fabienbaron/OITOOLS.jl.git"
 uuid = "3fc04337-ac9e-422b-9e4b-9feddb92e93f"
 version = "0.8.0"
-
-[[deps.OITOOLSWorkshop]]
-deps = ["IJulia", "OITOOLS", "PyCall", "PyPlot"]
-path = "."
-uuid = "00000000-0000-0000-0000-000000000001"
-version = "1.0.0"
 
 [[deps.OffsetArrays]]
 git-tree-sha1 = "117432e406b5c023f665fa73dc26e79ec3630151"
