@@ -1,0 +1,3 @@
+#!/bin/bash
+# Fix matplotlib version for OITOOLS compatibility
+/srv/julia/pkg/conda/3/x86_64/bin/conda install -y matplotlib=3.7.5
