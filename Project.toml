@@ -9,7 +9,7 @@ LazyAlgebra = "aeaa251e-9d76-11e9-311b-83636bf44738"
 OIFITS = "53eb397e-dec1-5dcf-8dc9-2db916067267"
 
 [sources]
-OITOOLS = {url = "https://github.com/fabienbaron/OITOOLS.jl.git"}
+OITOOLS = {url = "https://github.com/fabienbaron/OITOOLS.jl.git", rev = "dfb882cee37a506de321ff5c021011114aaf859f"}
 OptimPackNextGen = {url = "https://github.com/emmt/OptimPackNextGen.jl.git"}
 ArrayTools = {url = "https://github.com/emmt/ArrayTools.jl.git"}
 LazyAlgebra = {url = "https://github.com/emmt/LazyAlgebra.jl.git"}
