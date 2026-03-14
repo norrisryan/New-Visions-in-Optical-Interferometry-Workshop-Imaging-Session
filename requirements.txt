@@ -1,2 +1,3 @@
 ultranest
 astropy
+matplotlib==3.7.5
