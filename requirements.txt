@@ -1,3 +1,4 @@
 ultranest
 astropy
-matplotlib==3.7.5
+scipy
+matplotlib==3.8.0
