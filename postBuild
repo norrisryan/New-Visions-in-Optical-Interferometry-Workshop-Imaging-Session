@@ -1,12 +1,5 @@
 #!/bin/bash
-# Fix matplotlib for OITOOLS set_oiplot_defaults compatibility
-# Try multiple possible conda locations
-for CONDA in /srv/julia/pkg/conda/3/x86_64/bin/conda \
-             /opt/conda/bin/conda \
-             $(which conda 2>/dev/null); do
-    if [ -f "$CONDA" ]; then
-        echo "Found conda at $CONDA"
-        $CONDA install -y -c conda-forge "matplotlib>=3.8,<3.10"
-        break
-    fi
-done
+# postBuild: runs after the Binder image is built.
+# The matplotlib version cap (<3.10) has been removed because the notebook
+# now monkey-patches set_oiplot_defaults() to be compatible with any
+# matplotlib version. No conda version pinning needed.
