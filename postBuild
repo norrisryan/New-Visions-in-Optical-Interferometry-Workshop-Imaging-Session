@@ -1,28 +1,32 @@
 #!/bin/bash
 set -e
 
-echo "=== Installing OITOOLS and dependencies ==="
-
+echo "=== Installing base dependencies ==="
 julia -e '
 using Pkg
 Pkg.add(url="https://github.com/fabienbaron/OIFITS.jl.git", rev="t4")
 Pkg.add(url="https://github.com/emmt/ArrayTools.jl.git")
 Pkg.add(url="https://github.com/emmt/LazyAlgebra.jl.git")
 Pkg.add(url="https://github.com/emmt/OptimPackNextGen.jl.git")
-Pkg.add(url="https://github.com/fabienbaron/OITOOLS.jl.git")
+'
+
+echo "=== Cloning and patching OITOOLS ==="
+git clone https://github.com/fabienbaron/OITOOLS.jl.git /tmp/OITOOLS
+
+# Patch: relax OIFITS compat from "1" to "0.4"
+sed -i 's/^OIFITS = "1"/OIFITS = "0.4"/' /tmp/OITOOLS/Project.toml
+
+# Fix missing sparco_flat.jl
+echo "# stub — file removed from repo but still included" > /tmp/OITOOLS/src/sparco_flat.jl
+
+echo "=== Installing patched OITOOLS ==="
+julia -e '
+using Pkg
+Pkg.add(path="/tmp/OITOOLS")
 Pkg.add(["PyCall", "PyPlot", "Statistics"])
 '
 
-echo "=== Fixing sparco_flat.jl ==="
-OITOOLS_SRC=$(find /home/jovyan/.julia/packages/OITOOLS -name "OITOOLS.jl" -path "*/src/*" 2>/dev/null | head -1 | xargs dirname)
-if [ -n "$OITOOLS_SRC" ]; then
-    cp sparco_flat.jl "$OITOOLS_SRC/sparco_flat.jl"
-    echo "Installed sparco_flat.jl stub at $OITOOLS_SRC"
-else
-    echo "WARNING: Could not find OITOOLS src"
-fi
-
-echo "=== Precompiling OITOOLS ==="
+echo "=== Precompiling ==="
 julia -e 'using OITOOLS; println("OITOOLS loaded OK")'
 
 echo "=== postBuild complete ==="
