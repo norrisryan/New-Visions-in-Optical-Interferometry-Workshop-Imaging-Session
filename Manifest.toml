@@ -972,14 +972,6 @@ version = "0.4.22"
 uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
 version = "1.3.0"
 
-[[deps.OIFITS]]
-deps = ["CFITSIO", "FITSIO"]
-git-tree-sha1 = "f85a4813eb471af783e146189f75cd3242c7cae1"
-repo-rev = "t4"
-repo-url = "https://github.com/fabienbaron/OIFITS.jl.git"
-uuid = "53eb397e-dec1-5dcf-8dc9-2db916067267"
-version = "1.0.0"
-
 [[deps.OITOOLS]]
 deps = ["ArrayTools", "AstroTime", "CFITSIO", "ChainRulesCore", "Conda", "Crayons", "Dates", "DelimitedFiles", "Documenter", "DocumenterTools", "FFTW", "FITSIO", "ForwardDiff", "Glob", "LaTeXStrings", "LazyAlgebra", "LinearAlgebra", "LsqFit", "Match", "NFFT", "NLopt", "NearestNeighbors", "OIFITS", "OptimPackNextGen", "Parameters", "Pkg", "Printf", "ProgressMeter", "PyCall", "PyPlot", "Random", "RuntimeGeneratedFunctions", "SparseArrays", "SpecialFunctions", "Statistics", "TOML", "UltraNest"]
 git-tree-sha1 = "32a31aefe7dffb760f19ddf724a13ed2f1a7999b"
