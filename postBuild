@@ -1,28 +1,14 @@
 #!/bin/bash
 set -e
 
-echo "=== Installing base dependencies ==="
+echo "=== Installing OITOOLS and dependencies ==="
 julia -e '
 using Pkg
-Pkg.add(url="https://github.com/fabienbaron/OIFITS.jl.git", rev="t4")
+Pkg.add("OIFITS")
 Pkg.add(url="https://github.com/emmt/ArrayTools.jl.git")
 Pkg.add(url="https://github.com/emmt/LazyAlgebra.jl.git")
 Pkg.add(url="https://github.com/emmt/OptimPackNextGen.jl.git")
-'
-
-echo "=== Cloning and patching OITOOLS ==="
-git clone https://github.com/fabienbaron/OITOOLS.jl.git /tmp/OITOOLS
-
-# Patch: relax OIFITS compat from "1" to "0.4"
-sed -i 's/^OIFITS = "1"/OIFITS = "0.4"/' /tmp/OITOOLS/Project.toml
-
-# Fix missing sparco_flat.jl
-echo "# stub — file removed from repo but still included" > /tmp/OITOOLS/src/sparco_flat.jl
-
-echo "=== Installing patched OITOOLS ==="
-julia -e '
-using Pkg
-Pkg.add(path="/tmp/OITOOLS")
+Pkg.add(url="https://github.com/fabienbaron/OITOOLS.jl.git")
 Pkg.add(["PyCall", "PyPlot", "Statistics"])
 '
 
