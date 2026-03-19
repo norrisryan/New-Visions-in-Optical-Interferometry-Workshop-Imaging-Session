@@ -1,15 +1,19 @@
-name = "OITOOLSWorkshop"
-uuid = "00000000-0000-0000-0000-000000000001"
-authors = ["Ryan Norris"]
-version = "1.0.0"
-
 [deps]
-OITOOLS = "a6b2dd57-3984-45ae-8046-40b1a3f25f5b"
+IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
 PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
 PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+OITOOLS = "3fc04337-ac9e-422b-9e4b-9feddb92e93f"
+OptimPackNextGen = "080ffe24-4a27-4ab0-ad71-7b624e73ef8d"
+ArrayTools = "1dc0ca97-c5ce-4e77-ac6d-c576ac9d7f27"
+LazyAlgebra = "aeaa251e-9d76-11e9-311b-83636bf44738"
+OIFITS = "53eb397e-dec1-5dcf-8dc9-2db916067267"
 
-# Downloads is a Julia stdlib — always available, no need to declare it here.
-# Use it in the notebook with: import Downloads: download
+[sources]
+OITOOLS = {url = "https://github.com/fabienbaron/OITOOLS.jl.git"}
+OptimPackNextGen = {url = "https://github.com/emmt/OptimPackNextGen.jl.git"}
+ArrayTools = {url = "https://github.com/emmt/ArrayTools.jl.git"}
+LazyAlgebra = {url = "https://github.com/emmt/LazyAlgebra.jl.git"}
+OIFITS = {url = "https://github.com/fabienbaron/OIFITS.jl.git", rev = "t4"}
 
 [compat]
-julia = "1.9"
+julia = "1.10"

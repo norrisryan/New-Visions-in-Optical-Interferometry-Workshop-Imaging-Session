@@ -1,5 +1,15 @@
 #!/bin/bash
 # postBuild: runs after the Binder image is built.
-# The matplotlib version cap (<3.10) has been removed because the notebook
-# now monkey-patches set_oiplot_defaults() to be compatible with any
-# matplotlib version. No conda version pinning needed.
+#
+# OITOOLS HEAD references sparco_flat.jl in src/OITOOLS.jl but the file
+# was removed from the repo. Copy the stub into place so precompilation works.
+
+OITOOLS_SRC=$(find /home/jovyan/.julia/packages/OITOOLS -name "OITOOLS.jl" -path "*/src/*" 2>/dev/null | head -1 | xargs dirname)
+
+if [ -n "$OITOOLS_SRC" ]; then
+    echo "Found OITOOLS src at: $OITOOLS_SRC"
+    cp sparco_flat.jl "$OITOOLS_SRC/sparco_flat.jl"
+    echo "Installed sparco_flat.jl stub"
+else
+    echo "WARNING: Could not find OITOOLS src directory"
+fi
