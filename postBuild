@@ -1,15 +1,28 @@
 #!/bin/bash
-# postBuild: runs after the Binder image is built.
-#
-# OITOOLS HEAD references sparco_flat.jl in src/OITOOLS.jl but the file
-# was removed from the repo. Copy the stub into place so precompilation works.
+set -e
 
+echo "=== Installing OITOOLS and dependencies ==="
+
+julia -e '
+using Pkg
+Pkg.add(url="https://github.com/fabienbaron/OIFITS.jl.git", rev="t4")
+Pkg.add(url="https://github.com/emmt/ArrayTools.jl.git")
+Pkg.add(url="https://github.com/emmt/LazyAlgebra.jl.git")
+Pkg.add(url="https://github.com/emmt/OptimPackNextGen.jl.git")
+Pkg.add(url="https://github.com/fabienbaron/OITOOLS.jl.git")
+Pkg.add(["PyCall", "PyPlot", "Statistics"])
+'
+
+echo "=== Fixing sparco_flat.jl ==="
 OITOOLS_SRC=$(find /home/jovyan/.julia/packages/OITOOLS -name "OITOOLS.jl" -path "*/src/*" 2>/dev/null | head -1 | xargs dirname)
-
 if [ -n "$OITOOLS_SRC" ]; then
-    echo "Found OITOOLS src at: $OITOOLS_SRC"
     cp sparco_flat.jl "$OITOOLS_SRC/sparco_flat.jl"
-    echo "Installed sparco_flat.jl stub"
+    echo "Installed sparco_flat.jl stub at $OITOOLS_SRC"
 else
-    echo "WARNING: Could not find OITOOLS src directory"
+    echo "WARNING: Could not find OITOOLS src"
 fi
+
+echo "=== Precompiling OITOOLS ==="
+julia -e 'using OITOOLS; println("OITOOLS loaded OK")'
+
+echo "=== postBuild complete ==="
