@@ -14,5 +14,5 @@ Pkg.add(["PyCall", "PyPlot", "Statistics"])
 
 echo "=== Precompiling ==="
 julia -e 'using OITOOLS; println("OITOOLS loaded OK")'
-
 echo "=== postBuild complete ==="
+
